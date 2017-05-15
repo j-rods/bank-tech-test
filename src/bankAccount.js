@@ -1,3 +1,7 @@
+(function () {
+  'use strict';
+}());
+
 function BankAccount() {
   this.transactions = []
 }
