@@ -3,7 +3,7 @@
 }());
 
 function BankAccount() {
-  this.transactions = []
+  this.transactions = [{balance: 0}]
 }
 
 BankAccount.prototype.deposit = function(amount) {

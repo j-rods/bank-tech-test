@@ -28,6 +28,11 @@ describe ('customer', function() {
       account.withdraw(5);
       expect(account.printStatement()).toEqual(15);
     });
+
+    it('a starting balance of 0', function() {
+      expect(account.printStatement()).toEqual(0);
+    });
+
   });
 
 
