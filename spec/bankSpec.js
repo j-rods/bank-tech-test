@@ -23,14 +23,20 @@ describe ('customer', function() {
 
   describe('should be able to view', function() {
 
-    it('a printed statement with current balance', function() {
+    it('current balance', function() {
       account.deposit(20);
       account.withdraw(5);
-      expect(account.printStatement()).toEqual(15);
+      expect(account.viewBalance()).toEqual(15);
+    });
+
+    it('a full printed statement with all the transactions', function() {
+      account.deposit(20);
+      account.withdraw(5);
+      expect(account.printStatement).toContain(20)
     });
 
     it('a starting balance of 0', function() {
-      expect(account.printStatement()).toEqual(0);
+      expect(account.viewBalance()).toEqual(0);
     });
 
   });
