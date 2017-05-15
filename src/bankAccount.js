@@ -45,9 +45,12 @@ BankAccount.prototype.viewBalance = function() {
 BankAccount.prototype.printStatement = function() {
   var list = '';
   for (var i = 0; i < this.transactions.length; i++) {
-    list +=`
-    ${this.transactions[i].type} || £${this.transactions[i].amount} || £${this.transactions[i].balance}
-    `
+    list += [
+      this.transactions[i].date.formatDate,
+      this.transactions[i].type,
+      '£'+this.transactions[i].amount,
+      '£'+this.transactions[i].balance
+    ].join(' || ') + '\n'
   }
   return list;
 }
