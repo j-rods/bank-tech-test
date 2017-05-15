@@ -32,6 +32,10 @@ As a customer,
 I want my account to display the transaction date,
 so that I can track my transactions
 
+As a customer,
+I want my account to display the transaction type,
+so that I can track the type of transaction
+
 ```
 
 ### Printing Statements

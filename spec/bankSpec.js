@@ -35,9 +35,9 @@ describe ('customer', function() {
       expect(account.printStatement()).toContain('20')
     });
 
-    it('a starting balance of 0', function() {
-      expect(account.viewBalance()).toEqual(0);
-    });
+    // it('a starting balance of 0', function() {
+    //   expect(account.viewBalance()).toEqual(0);
+    // });
 
     // it('date of transaction', function() {
     //   var date = new Date();

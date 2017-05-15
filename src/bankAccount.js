@@ -3,18 +3,32 @@
 }());
 
 function BankAccount() {
-  this.transactions = [{balance: 0}]
+  this.transactions = []
 }
 
 BankAccount.prototype.deposit = function(amount) {
   //push amount into array
-  this.transactions.push({date: this.transactionDate(), balance: amount});
+  if (this.transactions.length > 0) {
+    var total = this.transactions[this.transactions.length-1].balance + amount;
+    this.transactions.push({date: this.transactionDate(),
+                            type: 'Deposit',
+                            amount: amount,
+                            balance: total});
+  } else {
+    this.transactions.push({date: this.transactionDate(),
+                            type: 'Deposit',
+                            amount: amount,
+                            balance: amount});
+  }
 }
 
 BankAccount.prototype.withdraw = function(amount) {
   //pop amount from array
   var total = this.transactions[this.transactions.length-1].balance - amount;
-  this.transactions.push({date: this.transactionDate(), balance: total});
+  this.transactions.push({date: this.transactionDate(),
+                          type: 'Withdraw',
+                          amount: amount,
+                          balance: total});
 }
 
 BankAccount.prototype.viewBalance = function() {
@@ -26,7 +40,7 @@ BankAccount.prototype.printStatement = function() {
   var list = '';
   for (var i = 0; i < this.transactions.length; i++) {
     list +=`
-    '${this.transactions[i].date} | £${this.transactions[i].balance} |'
+    '${this.transactions[i].date} || ${this.transactions[i].type} || £${this.transactions[i].amount} || £${this.transactions[i].balance}'
     `
   }
   return list;
@@ -40,3 +54,5 @@ BankAccount.prototype.transactionDate = function() {
 
   return currentDate;
 }
+
+
