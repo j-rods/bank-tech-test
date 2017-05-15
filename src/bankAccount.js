@@ -7,9 +7,8 @@ function BankAccount() {
 }
 
 BankAccount.prototype.deposit = function(amount) {
-  //push amount into array
   if (this.transactions.length > 0) {
-    var total = this.transactions[this.transactions.length-1].balance + amount;
+    var total = this.accountBalance() + amount;
     this.transactions.push({
       date: new CurrentDate(),
       type: 'Deposit',
@@ -27,8 +26,7 @@ BankAccount.prototype.deposit = function(amount) {
 }
 
 BankAccount.prototype.withdraw = function(amount) {
-  //pop amount from array
-  var total = this.transactions[this.transactions.length-1].balance - amount;
+  var total = this.accountBalance() - amount;
   this.transactions.push({
     date: new CurrentDate(),
     type: 'Withdraw',
@@ -37,13 +35,12 @@ BankAccount.prototype.withdraw = function(amount) {
   });
 }
 
-BankAccount.prototype.viewBalance = function() {
-  //print current balance
+BankAccount.prototype.accountBalance = function() {
   return this.transactions[this.transactions.length-1].balance;
 }
 
 BankAccount.prototype.printStatement = function() {
-  var list = '';
+  var list = 'Date || Transaction || Amount || Balance \n';
   for (var i = 0; i < this.transactions.length; i++) {
     list += [
       this.transactions[i].date.formatDate,

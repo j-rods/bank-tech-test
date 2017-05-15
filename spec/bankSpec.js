@@ -26,7 +26,7 @@ describe ('customer', function() {
     it('current balance', function() {
       account.deposit(20);
       account.withdraw(5);
-      expect(account.viewBalance()).toEqual(15);
+      expect(account.accountBalance()).toEqual(15);
     });
 
     it('a full printed statement with all the transactions', function() {
@@ -34,8 +34,5 @@ describe ('customer', function() {
       account.withdraw(5);
       expect(account.printStatement()).toContain('20')
     });
-
   });
-
-
 });
