@@ -23,8 +23,11 @@ BankAccount.prototype.viewBalance = function() {
 }
 
 BankAccount.prototype.printStatement = function() {
-  for (i = 0; i < account.transactions.length; ++i) {
-    console.log('balance: ' + account.transactions[i].balance);
-    console.log('');
+  var list = '';
+  for (var i = 0; i < this.transactions.length; i++) {
+    list +=`
+    'Balance: ${this.transactions[i].balance}'
+    `
   }
+  return list;
 }

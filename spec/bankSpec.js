@@ -32,7 +32,7 @@ describe ('customer', function() {
     it('a full printed statement with all the transactions', function() {
       account.deposit(20);
       account.withdraw(5);
-      expect(account.printStatement).toContain(20)
+      expect(account.printStatement()).toContain('20')
     });
 
     it('a starting balance of 0', function() {
