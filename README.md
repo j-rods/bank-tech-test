@@ -13,6 +13,7 @@ so that I can use my secured money
 
 As a customer,
 I want to be able to print a bank statement,
-so that I can see my transaction details
+so that I can see my current balance
+
 
 ```

@@ -8,7 +8,7 @@ beforeEach(function() {
   account = new BankAccount();
 });
 
-describe ('user', function() {
+describe ('customer', function() {
 
   it('should be able to make a deposit of a certain amount', function() {
     account.deposit(20);
@@ -20,5 +20,15 @@ describe ('user', function() {
     account.withdraw(5);
     expect(account.transactions[account.transactions.length-1].balance).toEqual(15);
   });
+
+  describe('should be able to view', function() {
+
+    it('a printed statement with current balance', function() {
+      account.deposit(20);
+      account.withdraw(5);
+      expect(account.printStatement()).toEqual(15);
+    });
+  });
+
 
 });
