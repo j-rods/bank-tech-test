@@ -39,6 +39,16 @@ describe ('customer', function() {
       expect(account.viewBalance()).toEqual(0);
     });
 
+    // it('date of transaction', function() {
+    //   var date = new Date();
+
+    //   spyOn(window, 'Date').and.callFake(function() {
+    //     return date;
+    //   });
+
+    //   expect(account.printStatement()).toContain(oldDate)
+    // });
+
   });
 
 
